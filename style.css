@@ -1,0 +1,13 @@
+img{
+	position : absolute;
+}
+button{
+	position : relative;
+	top : 480px;
+	left : 100px;
+}
+
+.hide{
+	display: none;
+	
+}

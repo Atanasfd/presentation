@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+		</script>
+		<link rel='stylesheet' href='style.css'>
+		
+	</head>
+	<body style="z-index:1 height: 100%; margin: 0;">
+	<img  src="1.jpg" id="slides" height=500 width=400 "z-index:2">
+	<button id='prev' class= 'hide' onclick="back()">Previous slide</button>
+	<button id='next' onclick="next()">Next slide</button>
+	
+	
+	<script>
+	 slidesList=["1.jpg","2.jpg","3.jpg","4.jpg"];
+	 nxt = document.getElementById('next');
+	 prev = document.getElementById('prev');
+	 focusedSlide=0;
+	
+	function next(){
+
+	   focusedSlide++;
+	   if(focusedSlide>0){
+		prev.classList.remove('hide');
+	   }
+	   
+	   if(focusedSlide==slidesList.length-1){
+		$("#next").html('start from the begging?');
+	   }
+	   if(focusedSlide>slidesList.length-1){
+		$("#next").html('Next slide');
+		focusedSlide=0;
+		prev.classList.add('hide');
+	   }
+	var image=slidesList[focusedSlide];
+	$("#slides").attr("src",image);
+	
+
+};
+
+	function back(){
+	
+
+	   focusedSlide--;
+	   if(focusedSlide==0){
+		//focusSlide=3;
+		prev.classList.add('hide');
+	   }
+	   if(focusedSlide<slidesList.length-1){
+		nxt.classList.remove('hide');
+	   }
+	var image=slidesList[focusedSlide];
+	$("#slides").attr("src",image);
+	
+
+};
+	
+	</script>
+	</body>
+
+
+
+
+</html>
